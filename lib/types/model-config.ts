@@ -22,6 +22,7 @@ export type ProviderName =
     | "kimi"
     | "minimax"
     | "novita"
+    | "ollama_local"
 
 // Individual model configuration
 export interface ModelConfig {
@@ -103,6 +104,7 @@ export const PROVIDER_LOGO_MAP: Record<string, string> = {
     modelscope: "modelscope",
     minimax: "minimax",
     novita: "novita",
+    ollama_local: "ollama_local",    
 }
 
 // Provider metadata
@@ -185,6 +187,10 @@ export const PROVIDER_INFO: Record<
         label: "Novita AI",
         defaultBaseUrl: "https://api.novita.ai/openai",
     },
+    ollama_local: {
+        label: "Ollama (Local)",
+        defaultBaseUrl: "http://localhost:11434/v1",
+    },    
 }
 
 // Suggested models per provider for quick add
@@ -361,6 +367,16 @@ export const SUGGESTED_MODELS: Partial<Record<ProviderName, string[]>> = {
         "zai-org/glm-5",
         "minimax/minimax-m2.5",
     ],
+    ollama_local: [
+        "gemma4:12b",
+        "qwen3-vl:2b",
+        "qwen3-vl:4b",
+        "qwen3-vl:8b",
+        "qwen3.6-ctx64k",
+        "gemma4:12b",
+        "gemma4-33b-ctx64k",
+        "nemotron3-33b-ctx128k",
+    ]
 }
 
 // Helper to generate UUID
